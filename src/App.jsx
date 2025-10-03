@@ -15,8 +15,7 @@ function App() {
             <input className='my-4 h-10 p-4 bg-black/70 border border-white rounded-xl text-white' type="text" placeholder='Image URL' />
             <input className='my-4 h-10 p-4 bg-black/70 border border-white rounded-xl text-white' type="text" placeholder='Initial Supply' />
           </div>
-          <button className='bg-black/90 h-10 w-40 rounded-xl text-white/80 border border-white hover:scale-105'>Create Token</button>
-
+          <button className='bg-black/90 h-10 w-40 rounded-xl text-white/80 border border-white hover:scale-105'>Create Token</button>  
         </div>
       </div>
     </>
