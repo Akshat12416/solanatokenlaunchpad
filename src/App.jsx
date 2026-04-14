@@ -1,23 +1,35 @@
 import { useState } from 'react'
+import React, { FC, useMemo } from 'react';
+import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
+import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
+import { UnsafeBurnerWalletAdapter } from '@solana/wallet-adapter-wallets';
+import {
+    WalletModalProvider,
+    WalletDisconnectButton,
+    WalletMultiButton
+} from '@solana/wallet-adapter-react-ui';
+import { clusterApiUrl } from '@solana/web3.js';
 
+import '@solana/wallet-adapter-react-ui/styles.css';
+import TokenLaunchpad from './components/TokenLaunchpad'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <div className='bg-black h-screen flex flex-row items-center justify-center'>
-        <div className='w-1/2 h-3/4 mt-8 flex flex-col justify-center items-center bg-white/40 border border-white rounded-xl'>
-          <h1 className='font-serif font-bold text-4xl'>Token Launchpad</h1>
-          <div className='flex flex-col m-10 bg-black/90 w-1/2 p-8 rounded-xl border border-white'>
-            <input className='my-4 h-10 p-4 bg-black/70 border border-white rounded-xl text-white' type="text" placeholder='Token Name' />
-            <input className='my-4 h-10 p-4 bg-black/70 border border-white rounded-xl text-white' type="text" placeholder='Symbol' />
-            <input className='my-4 h-10 p-4 bg-black/70 border border-white rounded-xl text-white' type="text" placeholder='Image URL' />
-            <input className='my-4 h-10 p-4 bg-black/70 border border-white rounded-xl text-white' type="text" placeholder='Initial Supply' />
-          </div>
-          <button className='bg-black/90 h-10 w-40 rounded-xl text-white/80 border border-white hover:scale-105'>Create Token</button>  
-        </div>
-      </div>
+    <ConnectionProvider endpoint={"https://solana-devnet.g.alchemy.com/v2/oBKzvXfwOXwoO-PsqI7X-"}>
+            <WalletProvider wallets={[]} autoConnect>
+                <WalletModalProvider>
+                  <div className='flex flex-row items-center'>
+                  <div className='m-4'><WalletMultiButton></WalletMultiButton></div>
+                  <div className='m-4'><WalletDisconnectButton></WalletDisconnectButton></div>
+                  </div>
+                <TokenLaunchpad />
+                </WalletModalProvider>
+            </WalletProvider>
+        </ConnectionProvider>
+      
     </>
   )
 }
