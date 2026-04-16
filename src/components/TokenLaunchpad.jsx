@@ -11,6 +11,11 @@ function TokenLaunchpad() {
 
     async function createToken(){
 
+        const name = document.getElementById('name').value;
+        const symbol = document.getElementById('symbol').value;
+        const imageUrl = document.getElementById('imageUrl').value;
+        const initialSupply = document.getElementById('initialSupply').value;
+
         const lamports = await connection.getMinimumBalanceForRentExemption(MINT_SIZE);
         const keypair = Keypair.generate();
         
@@ -40,10 +45,10 @@ function TokenLaunchpad() {
         <div className='w-1/2 h-3/4 mt-8 flex flex-col justify-center items-center bg-white/40 border border-white rounded-xl'>
           <h1 className='font-serif font-bold text-4xl'>Token Launchpad</h1>
           <div className='flex flex-col m-10 bg-black/90 w-1/2 p-8 rounded-xl border border-white'>
-            <input className='my-4 h-10 p-4 bg-black/70 border border-white rounded-xl text-white' type="text" placeholder='Token Name' />
-            <input className='my-4 h-10 p-4 bg-black/70 border border-white rounded-xl text-white' type="text" placeholder='Symbol' />
-            <input className='my-4 h-10 p-4 bg-black/70 border border-white rounded-xl text-white' type="text" placeholder='Image URL' />
-            <input className='my-4 h-10 p-4 bg-black/70 border border-white rounded-xl text-white' type="text" placeholder='Initial Supply' />
+            <input id='name' className='my-4 h-10 p-4 bg-black/70 border border-white rounded-xl text-white' type="text" placeholder='Token Name' />
+            <input id='symbol' className='my-4 h-10 p-4 bg-black/70 border border-white rounded-xl text-white' type="text" placeholder='Symbol' />
+            <input id='imageURL' className='my-4 h-10 p-4 bg-black/70 border border-white rounded-xl text-white' type="text" placeholder='Profile Image URL' />
+            <input id='initialSupply' className='my-4 h-10 p-4 bg-black/70 border border-white rounded-xl text-white' type="text" placeholder='Initial Supply' />
           </div>
           <button onClick={createToken} className='bg-black/90 h-10 w-40 rounded-xl text-white/80 border border-white hover:scale-105'>Create Token</button>  
         </div>
