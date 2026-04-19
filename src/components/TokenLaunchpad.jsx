@@ -45,7 +45,7 @@ function TokenLaunchpad() {
         <div className='w-1/2 h-3/4 mt-8 flex flex-col justify-center items-center bg-white/40 border border-white rounded-xl'>
           <h1 className='font-serif font-bold text-4xl'>Token Launchpad</h1>
           <div className='flex flex-col m-10 bg-black/90 w-1/2 p-8 rounded-xl border border-white'>
-            <input id='name' className='my-4 h-10 p-4 bg-black/70 border border-white rounded-xl text-white' type="text" placeholder='Token Name' />
+            <input id='name' className='my-4 h-11 p-4 bg-black/70 border border-white rounded-xl text-white' type="text" placeholder='Token Name' />
             <input id='symbol' className='my-3 h-10 p-4 bg-black/70 border border-white rounded-xl text-white' type="text" placeholder='Symbol' />
             <input id='imageURL' className='my-4 h-10 p-4 bg-black/70 border border-white rounded-xl text-white' type="text" placeholder='Profile Image URL' />
             <input id='initialSupply' className='my-4 h-10 p-4 bg-black/70 border border-white rounded-xl text-white' type="text" placeholder='Initial Supply' />
